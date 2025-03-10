@@ -8,6 +8,7 @@
   "author": "Eric Lowry <eric@myrealms.org>",
   "license": "GPL-3.0-only",
   "dependencies": {
+    "commander": "^13.1.0",
     "debug": "^4.4.0",
     "serialport": "^13.0.0"
   },
