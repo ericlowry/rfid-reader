@@ -1,12 +1,12 @@
 {
-  "name": "rfid_reader",
+  "name": "rfid-reader",
   "version": "0.0.1",
   "description": "Read RFIDs from an M7e Hecto",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eric Lowry <eric@myrealms.org>",
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "dependencies": {
     "debug": "^4.4.0",
     "serialport": "^13.0.0"
