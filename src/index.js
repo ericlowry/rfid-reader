@@ -9,7 +9,8 @@ import Debug from "debug";
 const debug = Debug("rfid");
 
 const rfidReader = new RFIDReader({
-  path: "COM10",
+  // path: "COM10",
+  path: '/dev/ttyUSB0',
   baudRate: 115200,
   autoOpen: false,
 });
@@ -50,3 +51,4 @@ process.on("SIGINT", async () => {
   console.log("done.");
   process.exit();
 });
+ 
