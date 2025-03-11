@@ -220,6 +220,25 @@ export class RFIDReader extends SerialPort {
     });
   }
 
+  setWritePower(dBm) {
+    let power = Math.abs(Math.trunc(dBm * 100));
+    if (power > 2700) power = 2700;
+    const cmd = makeCommand(
+      TMR_SR_OPCODE_SET_WRITE_TX_POWER,
+      Buffer.from([power >> 8, power & 0xff])
+    );
+    return this.sendAndWait(cmd);
+  }
+
+  getWritePower() {
+    const cmd = makeCommand(TMR_SR_OPCODE_GET_WRITE_TX_POWER);
+    return this.sendAndWait(cmd).then((result) => {
+      const power = result.readUInt16BE(5);
+      const dBm = power / 100;
+      return dBm;
+    });
+  }
+
   setTagProtocol(protocol) {
     const cmd = makeCommand(
       TMR_SR_OPCODE_SET_TAG_PROTOCOL,
